@@ -18,6 +18,7 @@ CACHE_DIR = ROOT / ".cache" / "claude-code-docs"
 RAW_DIR = CACHE_DIR / "raw"
 CONTENT_DIR = ROOT / "src" / "content" / "docs"
 GENERATED_DIR = ROOT / "src" / "generated"
+PAGES_DIR = ROOT / "src" / "pages" / "docs"
 TRANSLATION_CACHE_PATH = CACHE_DIR / "translation-cache.json"
 MANIFEST_PATH = GENERATED_DIR / "docs-manifest.json"
 
@@ -681,6 +682,51 @@ def write_manifest(entries: list[DocEntry]) -> None:
     )
 
 
+def generate_static_route_pages() -> None:
+    marker = "GENERATED_DOC_ROUTE"
+    PAGES_DIR.mkdir(parents=True, exist_ok=True)
+
+    for path in PAGES_DIR.glob("*.astro"):
+        if path.name == "index.astro":
+            continue
+        if marker in path.read_text():
+            path.unlink()
+
+    slugs = sorted(path.stem for path in CONTENT_DIR.glob("*.md"))
+
+    for slug in slugs:
+        page_path = PAGES_DIR / f"{slug}.astro"
+        redirect_path = PAGES_DIR / f"{slug}.md.astro"
+
+        page_path.write_text(
+            "\n".join(
+                [
+                    "---",
+                    f"// {marker}",
+                    'import DocEntryPage from "../../components/DocEntryPage.astro";',
+                    "---",
+                    "",
+                    f'<DocEntryPage entryId="{slug}" />',
+                    "",
+                ]
+            )
+        )
+
+        redirect_path.write_text(
+            "\n".join(
+                [
+                    "---",
+                    f"// {marker}",
+                    'import RedirectPage from "../../components/RedirectPage.astro";',
+                    "---",
+                    "",
+                    f'<RedirectPage from="/docs/{slug}.md" to="docs/{slug}" />',
+                    "",
+                ]
+            )
+        )
+
+
 def main() -> None:
     ensure_directories()
     translation_cache = load_translation_cache()
@@ -719,6 +765,7 @@ def main() -> None:
 
     all_entries = doc_entries + [docs_map_entry]
     write_manifest(all_entries)
+    generate_static_route_pages()
     save_translation_cache(translation_cache)
     print(f"Generated {len(all_entries)} official pages.")
 
