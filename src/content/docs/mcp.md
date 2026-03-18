@@ -46,7 +46,7 @@ Claude Code 可以通过 [Model Context Protocol (MCP)](https://modelcontextprot
 
 - Claude Code 接入命令：`claude mcp add notion --transport http https://mcp.notion.com/mcp`
 
-### 画布
+### Canva
 [官方文档](https://www.canva.dev/docs/connect/canva-mcp-server-setup/)
 
 搜索、创建、自动填充和导出 Canva 设计
@@ -63,11 +63,11 @@ Claude Code 可以通过 [Model Context Protocol (MCP)](https://modelcontextprot
 ### Slack
 [官方文档](https://docs.slack.dev/ai/mcp-server)
 
-发送消息、创建画布并获取 Slack 数据
+发送消息、创建画布(Canvas)并获取 Slack 数据
 
 - Claude Code 接入命令：`claude mcp add slack --transport http https://mcp.slack.com/mcp`
 
-### 阿特拉斯
+### Atlassian
 [官方文档](https://community.atlassian.com/forums/Atlassian-Platform-articles/Using-the-Atlassian-Remote-MCP-Server-beta/ba-p/3005104)
 
 从 Claude 访问 Jira 和 Confluence
@@ -81,54 +81,54 @@ Claude Code 可以通过 [Model Context Protocol (MCP)](https://modelcontextprot
 
 - Claude Code 接入命令：`claude mcp add linear --transport http https://mcp.linear.app/mcp`
 
-### 星期一.com
+### monday.com
 [官方文档](https://developer.monday.com/apps/docs/mondaycom-mcp-integration)
 
 在 monday.com 中管理项目、看板和工作流程
 
 - Claude Code 接入命令：`claude mcp add monday-com --transport http https://mcp.monday.com/mcp`
 
-### 对讲机
+### Intercom
 [官方文档](https://developers.intercom.com/docs/guides/mcp)
 
-访问对讲数据以获得更好的客户洞察
+访问 Intercom 数据以获得更好的客户洞察
 
 - Claude Code 接入命令：`claude mcp add intercom --transport http https://mcp.intercom.com/mcp`
 
-### 盒子
+### Box
 [官方文档](https://developer.box.com/guides/box-mcp)
 
 搜索、访问并深入了解您的 Box 内容
 
 - Claude Code 接入命令：`claude mcp add box --transport http https://mcp.box.com`
 
-### 伽玛
+### Gamma
 [官方文档](https://gamma.app/docs/Gamma-MCP-Server-Documentation-m6p43kobgzy15zj?mode=doc)
 
 使用 AI 创建演示文稿、文档、社交活动和网站
 
 - Claude Code 接入命令：`claude mcp add gamma --transport http https://mcp.gamma.app/mcp`
 
-### 韦尔塞尔
+### Vercel
 [官方文档](https://vercel.com/docs/mcp/vercel-mcp)
 
 分析、调试和管理项目和部署
 
 - Claude Code 接入命令：`claude mcp add vercel --transport http https://mcp.vercel.com/`
 
-### 格兰诺拉麦片
+### Granola
 [官方文档](https://help.granola.ai/article/granola-mcp#set-up-guide)
 
 用于会议的 AI 记事本
 
 - Claude Code 接入命令：`claude mcp add granola --transport http https://mcp.granola.ai/mcp`
 
-### 体式
+### Asana
 [官方文档](https://developers.asana.com/docs/mcp-server)
 
 连接到 Asana 以协调任务、项目和目标- Claude Code 接入命令：`claude mcp add asana --transport http https://mcp.asana.com/v2/mcp`
 
-### 米罗
+### Miro
 [官方文档](https://developers.miro.com/docs/miro-mcp)
 
 在 Miro 板上访问并创建新内容
@@ -142,7 +142,7 @@ Claude Code 可以通过 [Model Context Protocol (MCP)](https://modelcontextprot
 
 - Claude Code 接入命令：`claude mcp add sentry --transport http https://mcp.sentry.dev/mcp`
 
-### 考研
+### PubMed
 [官方文档](https://support.claude.com/en/)
 
 从 PubMed 搜索生物医学文献
@@ -180,7 +180,7 @@ Claude Code 可以通过 [Model Context Protocol (MCP)](https://modelcontextprot
 ### 上下文7
 [官方文档](https://context7.com/docs/overview)
 
-法学硕士和人工智能代码编辑器的最新文档
+LLM 和 AI 代码编辑器的最新文档
 
 - Claude Code 接入命令：`claude mcp add context7 --transport http https://mcp.context7.com/mcp`
 
@@ -1733,7 +1733,7 @@ Compare @postgres:schema://users with @docs:file://database/user-model
 
 ### 配置工具搜索
 
-默认情况下启用工具搜索：MCP 工具会延迟并按需发现。当 `ANTHROPIC_BASE_URL` 指向非第一方主机时，默认情况下会禁用工具搜索，因为大多数代理不会转发 `tool_reference` 块。如果您的代理这样做，请明确设置 `ENABLE_TOOL_SEARCH`。此功能需要支持 `tool_reference` 块的型号：Sonnet 4 及更高版本，或 Opus 4 及更高版本。 Haiku 模型不支持工具搜索。
+默认情况下启用工具搜索：MCP 工具会延迟并按需发现。当 `ANTHROPIC_BASE_URL` 指向非第一方主机时，默认情况下会禁用工具搜索，因为大多数代理不会转发 `tool_reference` 块。如果您的代理这样做，请明确设置 `ENABLE_TOOL_SEARCH`。此功能需要支持 `tool_reference` 块的模型：Sonnet 4 及更高版本，或 Opus 4 及更高版本。 Haiku 模型不支持工具搜索。
 
 使用 `ENABLE_TOOL_SEARCH` 环境变量控制工具搜索行为：
 

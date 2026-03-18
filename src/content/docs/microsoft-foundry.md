@@ -34,9 +34,9 @@ tags: []
 1. 导航至 [Microsoft Foundry 门户](https://ai.azure.com/)
 2. 创建一个新资源，记下您的资源名称
 3. 为 Claude 模型创建部署：
-   * Claude 作品
-   * Claude 十四行诗
-   * Claude 俳句
+   * Claude Opus
+   * Claude Sonnet
+   * Claude Haiku
 
 ### 2.配置Azure凭据
 
@@ -82,7 +82,7 @@ export ANTHROPIC_FOUNDRY_RESOURCE={resource}
 # export ANTHROPIC_FOUNDRY_BASE_URL=https://{resource}.services.ai.azure.com/anthropic
 ```
 
-### 4. 引脚型号版本
+### 4. 固定模型版本
 
 **警告**
 
@@ -96,7 +96,7 @@ export ANTHROPIC_DEFAULT_SONNET_MODEL='claude-sonnet-4-6'
 export ANTHROPIC_DEFAULT_HAIKU_MODEL='claude-haiku-4-5'
 ```
 
-有关当前和旧版型号 ID，请参阅[型号概述](https://platform.claude.com/docs/en/about-claude/models/overview)。有关环境变量的完整列表，请参阅[模型配置](./model-config#pin-models-for-third-party-deployments)。
+有关当前和旧版模型 ID，请参阅[模型概述](https://platform.claude.com/docs/en/about-claude/models/overview)。有关环境变量的完整列表，请参阅[模型配置](./model-config#pin-models-for-third-party-deployments)。
 
 ## Azure RBAC 配置
 
@@ -125,5 +125,5 @@ export ANTHROPIC_DEFAULT_HAIKU_MODEL='claude-haiku-4-5'
 * 在环境中配置Entra ID，或设置`ANTHROPIC_FOUNDRY_API_KEY`。
 
 ## 其他资源* [Microsoft Foundry 文档](https://learn.microsoft.com/en-us/azure/ai-foundry/what-is-azure-ai-foundry)
-* [Microsoft Foundry 型号](https://ai.azure.com/explore/models)
+* [Microsoft Foundry 模型](https://ai.azure.com/explore/models)
 * [Microsoft Foundry 定价](https://azure.microsoft.com/en-us/pricing/details/ai-foundry/)

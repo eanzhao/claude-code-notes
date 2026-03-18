@@ -393,7 +393,7 @@ Claude Code 通过 OpenTelemetry 日志/事件导出以下事件（当配置 `OT
 * `event.name`: `"api_request"`
 * `event.timestamp`：ISO 8601 时间戳
 * `event.sequence`：单调递增计数器，用于在会话中排序事件
-* `model`：使用的型号（例如“claude-sonnet-4-6”）
+* `model`：使用的模型（例如“claude-sonnet-4-6”）
 * `cost_usd`：预计成本（美元）
 * `duration_ms`：请求持续时间（以毫秒为单位）
 * `input_tokens`：输入令牌数量
@@ -414,7 +414,7 @@ Claude Code 通过 OpenTelemetry 日志/事件导出以下事件（当配置 `OT
 * `event.name`: `"api_error"`
 * `event.timestamp`：ISO 8601 时间戳
 * `event.sequence`：单调递增计数器，用于在会话中排序事件
-* `model`：使用的型号（例如“claude-sonnet-4-6”）
+* `model`：使用的模型（例如“claude-sonnet-4-6”）
 * `error`：错误消息
 * `status_code`：HTTP 状态代码作为字符串，或 `"undefined"` 表示非 HTTP 错误
 * `duration_ms`：请求持续时间（以毫秒为单位）

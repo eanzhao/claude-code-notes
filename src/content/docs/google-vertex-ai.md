@@ -19,7 +19,7 @@ tags: []
 
 * 启用结算功能的 Google Cloud Platform (GCP) 帐户
 * 启用 Vertex AI API 的 GCP 项目
-* 访问所需的 Claude 型号（例如 Claude Sonnet 4.6）
+* 访问所需的 Claude 模型（例如 Claude Sonnet 4.6）
 * 安装并配置 Google Cloud SDK (`gcloud`)
 * 在所需 GCP 区域分配的配额
 
@@ -33,7 +33,7 @@ Claude Code 可与 Vertex AI [全球](https://cloud.google.com/blog/products/ai-
 
 **注意**
 
-Vertex AI 可能不支持所有[区域](https://cloud.google.com/vertex-ai/generative-ai/docs/learn/locations#genai-partner-models) 或[全球端点](https://cloud.google.com/vertex-ai/generative-ai/docs/partner-models/use-partner-models#supported_models) 上的 Claude Code 默认模型。您可能需要切换到支持的区域、使用区域终端节点或指定支持的型号。
+Vertex AI 可能不支持所有[区域](https://cloud.google.com/vertex-ai/generative-ai/docs/learn/locations#genai-partner-models) 或[全球端点](https://cloud.google.com/vertex-ai/generative-ai/docs/partner-models/use-partner-models#supported_models) 上的 Claude Code 默认模型。您可能需要切换到支持的区域、使用区域终端节点或指定支持的模型。
 
 ## 设置
 
@@ -108,14 +108,14 @@ export ANTHROPIC_DEFAULT_SONNET_MODEL='claude-sonnet-4-6'
 export ANTHROPIC_DEFAULT_HAIKU_MODEL='claude-haiku-4-5@20251001'
 ```
 
-有关当前和旧版型号 ID，请参阅[型号概述](https://platform.claude.com/docs/en/about-claude/models/overview)。有关环境变量的完整列表，请参阅[模型配置](./model-config#pin-models-for-third-party-deployments)。
+有关当前和旧版模型 ID，请参阅[模型概述](https://platform.claude.com/docs/en/about-claude/models/overview)。有关环境变量的完整列表，请参阅[模型配置](./model-config#pin-models-for-third-party-deployments)。
 
 当未设置固定变量时，Claude Code 使用这些默认模型：
 
 |型号类型|默认值 |
 | ：-------------- | :-------------------------- |
-|主要型号| `claude-sonnet-4-6` |
-|小型/快速型号 | `claude-haiku-4-5@20251001` |
+|主要模型| `claude-sonnet-4-6` |
+|小型/快速模型 | `claude-haiku-4-5@20251001` |
 
 要进一步定制模型：
 
@@ -155,7 +155,7 @@ Claude Opus 4.6、Sonnet 4.6、Sonnet 4.5 和 Sonnet 4 支持 Vertex AI 上的 [
 * 确认模型已在[模型花园]中启用(https://console.cloud.google.com/vertex-ai/model-garden)
 * 验证您是否有权访问指定区域
 * 如果使用 `CLOUD_ML_REGION=global`，请在“支持的功能”下的 [模型花园](https://console.cloud.google.com/vertex-ai/model-garden) 中检查您的模型是否支持全局端点。对于不支持全局端点的模型，可以：
-  * 通过 `ANTHROPIC_MODEL` 或 `ANTHROPIC_DEFAULT_HAIKU_MODEL` 指定支持的型号，或者
+  * 通过 `ANTHROPIC_MODEL` 或 `ANTHROPIC_DEFAULT_HAIKU_MODEL` 指定支持的模型，或者
   * 使用 `VERTEX_REGION_<MODEL_NAME>` 环境变量设置区域端点
 
 如果遇到 429 错误：

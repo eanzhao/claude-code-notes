@@ -17,7 +17,7 @@ tags: []
 
 运行 `claude --version` 检查您安装的版本。
 
-## 78年1月2日（2026年3月17日）* 添加了 `StopFailure` 挂钩事件，该事件在回合由于 API 错误（速率限制、身份验证失败等）而结束时触发
+## v2.1.78（2026年3月17日）* 添加了 `StopFailure` 挂钩事件，该事件在回合由于 API 错误（速率限制、身份验证失败等）而结束时触发
 * 为插件持久状态添加了 `${CLAUDE_PLUGIN_DATA}` 变量，该变量在插件更新后仍然存在； `/plugin uninstall` 删除前提示
 * 添加了对插件传送代理的 `effort`、`maxTurns` 和 `disallowedTools` frontmatter 支持
 * 当在 tmux 和 `set -g allow-passthrough on` 中运行时，终端通知（iTerm2/Kitty/Ghostty 弹出窗口、进度条）现在会到达外部终端
@@ -38,13 +38,13 @@ tags: []
 * 修复了从 Dock/Spotlight 启动 VS Code 时 Bash 工具找不到 Homebrew 和其他依赖于 PATH 的二进制文件的问题
 * 修复了不宣传真彩色支持的 VS Code/光标/代码服务器终端中褪色的 Claude 橙色
 * 添加了 `ANTHROPIC_CUSTOM_MODEL_OPTION` 环境变量，以向 `/model` 选择器添加自定义条目，并带有可选的 `_NAME` 和 `_DESCRIPTION` 后缀变量用于显示
-* 修复了使用俳句模型时 `ANTHROPIC_BETAS` 环境变量被默默忽略的问题
+* 修复了使用 Haiku 模型时 `ANTHROPIC_BETAS` 环境变量被默默忽略的问题
 * 修复了在没有换行符的情况下连接排队提示的问题
 * 改进了恢复大型会话时的内存使用情况和启动时间
 * \[VSCode] 修复了在已通过身份验证的情况下打开侧边栏时登录屏幕短暂闪烁的问题
 * \[VSCode] 修复了选择 Opus 时的“API 错误：达到速率限制” — 模型下拉列表不再向计划层级未知的订阅者提供 1M 上下文变体
 
-## 77年1月2日（2026年3月17日）* Claude Opus 4.6 的默认最大输出令牌限制增加到 64k 令牌，Opus 4.6 和 Sonnet 4.6 模型的上限增加到 128k 令牌
+## v2.1.77（2026年3月17日）* Claude Opus 4.6 的默认最大输出令牌限制增加到 64k 令牌，Opus 4.6 和 Sonnet 4.6 模型的上限增加到 128k 令牌
 * 添加了 `allowRead` 沙箱文件系统设置以重新允许 `denyRead` 区域内的读取访问
 * `/copy` 现在接受可选索引：`/copy N` 复制第 N 个最新的助理响应
 * 修复了复合 bash 命令（例如 `cd src && npm test`）上的“始终允许”为完整字符串而不是每个子命令保存单个规则，从而导致死规则和重复的权限提示
@@ -86,7 +86,7 @@ tags: []
 * `SendMessage` 现在会在后台自动恢复停止的代理，而不是返回错误
 * 将 `/fork` 重命名为 `/branch`（`/fork` 仍可用作别名）
 * \[VSCode] 改进了计划预览选项卡标题，以使用计划的标题而不是“Claude 的计划”
-* \[VSCode] 当选项+单击未触发 macOS 上的本机选择时，页脚现在指向 `macOptionClickForcesSelection` 设置## 76年1月2日（2026年3月14日）* 添加了 MCP 启发支持 - MCP 服务器现在可以通过交互式对话框（表单字段或浏览器 URL）请求结构化输入中间任务
+* \[VSCode] 当选项+单击未触发 macOS 上的本机选择时，页脚现在指向 `macOptionClickForcesSelection` 设置## v2.1.76（2026年3月14日）* 添加了 MCP 启发支持 - MCP 服务器现在可以通过交互式对话框（表单字段或浏览器 URL）请求结构化输入中间任务
 * 添加了新的 `Elicitation` 和 `ElicitationResult` 挂钩，以在响应发送回之前拦截并覆盖响应
 * 添加了 `-n` / `--name <name>` CLI 标志以设置启动时会话的显示名称
 * 在大型 monorepos 中添加了 `claude --worktree` 的 `worktree.sparsePaths` 设置，以通过 git稀疏结帐仅签出您需要的目录
@@ -119,7 +119,7 @@ tags: []
 * 改进了 Remote Control 会话标题 - 现在源自您的第一个提示，而不是显示“交互式会话”
 * 改进了 `/voice`，以在启用时显示您的听写语言，并在您的 `language` 设置不支持语音输入时发出警告
 * 更新了 `--plugin-dir` 以仅接受一个路径来支持子命令 - 对多个目录使用重复的 `--plugin-dir`
-* \[VSCode] 修复了包含逗号的 gitignore 模式，默默地从 @-mention 文件选择器中排除整个文件类型## 75年1月2日（2026年3月13日）
+* \[VSCode] 修复了包含逗号的 gitignore 模式，默默地从 @-mention 文件选择器中排除整个文件类型## v2.1.75（2026年3月13日）
 
 * 默认为 Max、Team 和 Enterprise 计划添加 Opus 4.6 的 1M 上下文窗口（之前需要额外使用）
 * 添加了 `/color` 命令，供所有用户为会话设置提示栏颜色
@@ -141,7 +141,7 @@ tags: []
 * 默认情况下抑制异步挂钩完成消息（在 `--verbose` 或转录模式下可见）
 * 重大更改：删除了 `C:\ProgramData\ClaudeCode\managed-settings.json` 处已弃用的 Windows 托管设置回退 — 使用 `C:\Program Files\ClaudeCode\managed-settings.json`
 
-## 74年1月2日（2026年3月12日）* 为 `/context` 命令添加了可操作的建议 - 通过特定的优化提示识别上下文繁重的工具、内存膨胀和容量警告
+## v2.1.74（2026年3月12日）* 为 `/context` 命令添加了可操作的建议 - 通过特定的优化提示识别上下文繁重的工具、内存膨胀和容量警告
 * 添加 `autoMemoryDirectory` 设置以配置自动内存存储的自定义目录
 * 修复了生成器提前终止时未释放流式 API 响应缓冲区的内存泄漏，导致 Node.js/npm 代码路径上的 RSS 无限增长
 * 修复了用户 `allow` 规则或技能 `allowed-tools` 绕过的托管策略 `ask` 规则
@@ -159,7 +159,7 @@ tags: []
 * \[VSCode] 修复了删除按钮对无标题会话不起作用的问题
 * \[VSCode] 通过终端感知加速改进了集成终端中的滚轮响应能力
 
-## 73年1月2日（2026年3月11日）* 添加了 `modelOverrides` 设置以将模型选择器条目映射到自定义提供商模型 ID（例如 Bedrock 推理配置文件 ARN）
+## v2.1.73（2026年3月11日）* 添加了 `modelOverrides` 设置以将模型选择器条目映射到自定义提供商模型 ID（例如 Bedrock 推理配置文件 ARN）
 * 添加了当 OAuth 登录或连接检查因 SSL 证书错误而失败时的可操作指南（公司代理、`NODE_EXTRA_CA_CERTS`）
 * 修复了复杂 bash 命令的权限提示触发的冻结和 100% CPU 循环
 * 修复了当许多技能文件同时更改时可能冻结 Claude Code 的死锁（例如，在具有大型 `.claude/skills/` 目录的存储库中的 `git pull` 期间）
@@ -168,7 +168,7 @@ tags: []
 * 修复了代理退出时子代理生成的后台 bash 进程未被清理的问题
 * 修复了 `/resume` 在选择器中显示当前会话的问题
 * 修复了自动安装扩展时 `/ide` 与 `onInstall is not defined` 一起崩溃的问题
-* 修复了 `/loop` 在基岩/顶点/铸造厂上以及遥测禁用时不可用的问题
+* 修复了 `/loop` 在 Bedrock/Vertex/Foundry 上以及遥测禁用时不可用的问题
 * 修复了通过 `--resume` 或 `--continue` 恢复会话时 SessionStart 挂钩触发两次的问题
 * 修复了 JSON 输出挂钩在每回合将无操作系统提醒消息注入到模型上下文中的问题
 * 修复了当慢速连接与新录音重叠时语音模式会话损坏的问题
@@ -186,7 +186,7 @@ tags: []
 * 已弃用 `/output-style` 命令 — 请改用 `/config`。现在，输出样式在会话开始时已修复，以实现更好的提示缓存
 * VSCode：修复了代理后面或使用 Claude 4.5 型号的 Bedrock/Vertex 上的用户的 HTTP 400 错误
 
-## 72年1月2日（2026年3月10日）* 修复了只要设置了 `ENABLE_TOOL_SEARCH`，工具搜索即使使用 `ANTHROPIC_BASE_URL` 也会激活。
+## v2.1.72（2026年3月10日）* 修复了只要设置了 `ENABLE_TOOL_SEARCH`，工具搜索即使使用 `ANTHROPIC_BASE_URL` 也会激活。
 * 在 `/copy` 中添加了 `w` 密钥，以绕过剪贴板将焦点选择直接写入文件（通过 SSH 有用）
 * 为 `/plan`（例如 `/plan fix the auth bug`）添加了可选描述参数，该参数进入计划模式并立即启动
 * 添加了 `ExitWorktree` 工具以离开 `EnterWorktree` 会话
@@ -235,7 +235,7 @@ tags: []
 * VSCode：修复了集成终端中的滚动速度与本机终端不匹配的问题
 * VSCode：修复了 Shift+Enter 提交输入的问题，而不是为使用旧键绑定的用户插入换行符
 * VSCode：在输入边框上添加了努力程度指示器
-* VSCode：添加了 `vscode://anthropic.claude-code/open` URI 处理程序，以编程方式打开新的 Claude Code 选项卡，并带有可选的 `prompt` 和 `session` 查询参数## 71年1月2日（2026年3月7日）* 添加了 `/loop` 命令以定期运行提示或斜线命令（例如 `/loop 5m check the deploy`）
+* VSCode：添加了 `vscode://anthropic.claude-code/open` URI 处理程序，以编程方式打开新的 Claude Code 选项卡，并带有可选的 `prompt` 和 `session` 查询参数## v2.1.71（2026年3月7日）* 添加了 `/loop` 命令以定期运行提示或斜线命令（例如 `/loop 5m check the deploy`）
 * 添加了 cron 调度工具，用于在会话中重复提示
 * 添加了 `voice:pushToTalk` 键绑定，使语音激活键可在 `keybindings.json` 中重新绑定（默认值：空格）——像 `meta+k` 这样的修饰符+字母组合具有零打字干扰
 * 添加了 `fmt`、`comm`、`cmp`、`numfmt`、`expr`、`test`、`printf`、`getconf`、`seq`、`tsort` 和`pr` 加入 bash 自动批准白名单
@@ -261,8 +261,8 @@ tags: []
 * 改进了桥接会话重新连接，可在笔记本电脑从睡眠状态唤醒后几秒钟内完成，而不是等待 10 分钟
 * 改进了 `/plugin uninstall` 以禁用 `.claude/settings.local.json` 中的项目范围插件，而不是修改 `.claude/settings.json`，因此更改不会影响队友* 改进的插件提供的 MCP 服务器重复数据删除 — 现在会跳过重复手动配置的服务器（相同命令/URL）的服务器，从而防止重复的连接和工具集。抑制显示在 `/plugin` 菜单中。
 * 更新了 `/debug` 以在会话中切换调试日志记录，因为默认情况下不再写入调试日志
-* 删除了未经身份验证的组织注册的 claude.ai 连接器的启动通知噪音## 70年2月1日（2026年3月6日）* 修复了将 `ANTHROPIC_BASE_URL` 与第三方网关结合使用时的 API 400 错误 - 工具搜索现在可以正确检测代理端点并禁用 `tool_reference` 块
-* 修复了使用自定义基岩推理配置文件或其他与标准 Claude 命名模式不匹配的模型标识符时的 `API Error: 400 This model does not support the effort parameter`
+* 删除了未经身份验证的组织注册的 claude.ai 连接器的启动通知噪音## v2.1.70（2026年3月6日）* 修复了将 `ANTHROPIC_BASE_URL` 与第三方网关结合使用时的 API 400 错误 - 工具搜索现在可以正确检测代理端点并禁用 `tool_reference` 块
+* 修复了使用自定义 Bedrock 推理配置文件或其他与标准 Claude 命名模式不匹配的模型标识符时的 `API Error: 400 This model does not support the effort parameter`
 * 修复了 `ToolSearch` 之后立即出现的空模型响应 — 服务器在提示尾部渲染带有系统提示样式标签的工具模式，这可能会使模型感到困惑而提前停止
 * 修复了当带有 `instructions` 的 MCP 服务器在第一回合后连接时提示缓存崩溃的问题
 * 修复了通过慢速 SSH 连接输入时 Enter 插入换行符而不是提交的问题
@@ -288,7 +288,7 @@ tags: []
 * 对于没有自定义 CA 证书的用户，启动内存减少了约 426KB
 * 将 Remote Control `/poll` 速率降低至连接时每 10 分钟一次（为 1–2 秒），将服务器负载削减约 300 倍。重新连接不受影响——传输丢失会立即唤醒快速轮询。
 * \[VSCode] 在 VS Code 活动栏中添加了 Spark 图标，列出了所有 Claude Code 会话，会话以完整编辑器的身份打开* \[VSCode] 为 VS Code 中的计划添加了完整的 Markdown 文档视图，支持添加评论以提供反馈
-* \[VSCode] 添加了本机 MCP 服务器管理对话框 - 在聊天面板中使用 `/mcp` 来启用/禁用服务器、重新连接和管理 OAuth 身份验证，而无需切换到终端## 2026年1月2日（2026年3月5日）* 添加了 `/claude-api` 技能，用于使用 Claude API 和 Anthropic SDK 构建应用程序
+* \[VSCode] 添加了本机 MCP 服务器管理对话框 - 在聊天面板中使用 `/mcp` 来启用/禁用服务器、重新连接和管理 OAuth 身份验证，而无需切换到终端## v2.1.65（2026年3月5日）* 添加了 `/claude-api` 技能，用于使用 Claude API 和 Anthropic SDK 构建应用程序
 * 在空 bash 提示符 (`!`) 上添加 Ctrl+U 以退出 bash 模式，匹配 `escape` 和 `backspace`
 * 添加了数字键盘支持，用于在 Claude 的面试问题中选择选项（之前只有 QWERTY 上方的数字行有效）
 * 向 `/remote-control` 和 `claude remote-control`（`/remote-control My Project` 或 `--name "My Project"`）添加了可选名称参数，以设置在 claude.ai/code 中可见的自定义会话标题
@@ -387,7 +387,7 @@ tags: []
 * \[SDK] 更改了任务创建，不再需要 `activeForm` 字段 - 旋转器回退到任务主题
 * \[VSCode] 添加压缩显示作为可折叠的“压缩聊天”卡，其中包含摘要
 * \[VSCode] 权限模式选择器现在尊重有效 Claude Code 设置（包括托管/策略设置）中的 `permissions.disableBypassPermissionsMode` — 当设置为 `disable` 时，旁路权限模式对选择器隐藏
-* \[VSCode] 修复了聊天面板中 RTL 文本（阿拉伯语、希伯来语、波斯语）渲染反转的问题（v2.1.63 中的回归）## 2026年1月2日（2026年3月4日）
+* \[VSCode] 修复了聊天面板中 RTL 文本（阿拉伯语、希伯来语、波斯语）渲染反转的问题（v2.1.63 中的回归）## v2.1.64（2026年3月4日）
 
 * Opus 4.6 现在默认为 Max 和 Team 订阅者提供中等工作量。中等强度适用于大多数任务——这是速度和彻底性之间的最佳平衡点。您可以随时使用 `/model` 更改此设置
 * 重新引入“ultrathink”关键词，为下一回合提供高度努力
@@ -451,7 +451,7 @@ tags: []
 
 * VS Code：修复了“未找到命令‘claude-vscode.editor.openLast’”崩溃的另一个原因
 
-## 55年2月1日（2026年2月25日）
+## v2.1.55（2026年2月25日）
 
 * 修复了 BashTool 在 Windows 上失败并出现 EINVAL 错误的问题
 
@@ -508,7 +508,7 @@ tags: []
 * 修复了 CircularBuffer 中的内存泄漏，其中已清除的项目保留在后备数组中
 * 修复了 shell 命令执行中的内存泄漏，其中 ChildProcess 和 AbortController 引用在清理后被保留
 
-## 2026年2月19日（2026年2月19日）* 改进了 MCP OAuth 身份验证，具有逐步身份验证支持和发现缓存，减少服务器连接期间的冗余网络请求
+## v2.1.49（2026年2月19日）* 改进了 MCP OAuth 身份验证，具有逐步身份验证支持和发现缓存，减少服务器连接期间的冗余网络请求
 * 添加了 `--worktree` (`-w`) 标志以在隔离的 git 工作树中启动 Claude
 * 子代理支持 `isolation: "worktree"` 在临时 git 工作树中工作
 * 添加了 Ctrl+F 键绑定来杀死后台代理（按两次确认）
@@ -597,12 +597,12 @@ tags: []
 * 修复了由于从工作树特定的 gitdir 而不是主存储库配置读取远程 URL 解析而导致 git 工作树中后台任务失败的问题 (anthropics/claude-code#26065)
 * 修复了右 Alt 键在 Windows/Git Bash 终端的输入字段中留下可见的 `[25~` 转义序列残留的问题 (anthropics/claude-code#25943)
 * `/rename` 命令现在默认更新终端选项卡标题 (anthropics/claude-code#25789)* 修复了编辑工具在编辑时将 Unicode 弯引号 (\u201c\u201d \u2018\u2019) 替换为直引号（anthropics/claude-code#26141）
-* 修复了当链接文本跨多个终端行换行时，OSC 8 超链接只能在第一行单击。## 2026年2月18日（2026年2月18日）
+* 修复了当链接文本跨多个终端行换行时，OSC 8 超链接只能在第一行单击。## v2.1.48（2026年2月18日）
 
 * 修复了 macOS 上终端断开连接后孤立的 CC 进程
 * 添加了对在 Claude Code 中使用 claude.ai MCP 连接器的支持
 
-## 2026年2月17日2月17日
+## v2.1.47（2026年2月17日）
 
 * 添加了对 Claude Sonnet 4.6 的支持
 * 添加了对从 `--add-dir` 目录读取 `enabledPlugins` 和 `extraKnownMarketplaces` 的支持
@@ -620,18 +620,18 @@ tags: []
 * 改进了折叠的读取/搜索组，以显示活动时在摘要行下方正在处理的当前文件或搜索模式
 * \[VSCode] 改进了权限目标选择（项目/用户/会话）以跨会话保留
 
-## 44年2月16日（2026年2月16日）
+## v2.1.44（2026年2月16日）
 
 * 修复了深层嵌套目录路径的 ENAMETOOLONG 错误
 * 修复了身份验证刷新错误
 
-## 2026年2月16日2月16日
+## v2.1.43（2026年2月16日）
 
 * 通过添加 3 分钟超时修复了 AWS 身份验证刷新无限期挂起的问题
 * 修复了 `.claude/agents/` 目录中非代理降价文件的虚假警告
 * 修复了在 Vertex/Bedrock 上无条件发送的结构化输出 beta 标头
 
-## 2026年2月13日（2026年2月13日）
+## v2.1.42（2026年2月13日）
 
 * 通过推迟 Zod 架构构建来提高启动性能
 * 通过将日期移出系统提示来提高提示缓存命中率
@@ -639,7 +639,7 @@ tags: []
 * 修复 /resume 将中断消息显示为会话标题
 * 修复了建议/compact的图像尺寸限制错误
 
-## 2026年1月13日（2026年2月13日）* 添加了防止在另一个 Claude Code 会话中启动 Claude Code 的保护
+## v2.1.41（2026年2月13日）* 添加了防止在另一个 Claude Code 会话中启动 Claude Code 的保护
 * 修复了代理团队对 Bedrock、Vertex 和 Foundry 客户使用错误型号标识符的问题
 * 修复了 MCP 工具在流式传输期间返回图像内容时的崩溃问题
 * 修复/恢复会话预览显示原始 XML 标签而不是可读的命令名称
@@ -662,7 +662,7 @@ tags: []
 * 修复了磁盘上设置更改时清除过时权限规则的问题
 * 修复了 UI 中显示 stderr 内容的钩子阻塞错误
 
-## 39年1月2日（2026年2月10日）
+## v2.1.39（2026年2月10日）
 
 * 改进终端渲染性能
 * 修复了被吞掉而不是显示的致命错误
@@ -670,7 +670,7 @@ tags: []
 * 修复了终端屏幕边界处的字符丢失问题
 * 修复了详细记录视图中的空白行
 
-## 38年1月2日（2026年2月10日）
+## v2.1.38（2026年2月10日）
 
 * 修复了 2.1.37 中引入的 VS Code 终端滚动到顶部回归问题
 * 修复了 Tab 键排队斜杠命令而不是自动完成的问题
@@ -680,20 +680,20 @@ tags: []
 * 改进了heredoc分隔符解析以防止命令走私
 * 在沙盒模式下阻止对 `.claude/skills` 目录的写入
 
-## 37年2月1日（2026年2月7日）
+## v2.1.37（2026年2月7日）
 
 * 修复了启用 /extra-usage 后 /fast 无法立即可用的问题
 
-## 36年1月2日（2026年2月7日）
+## v2.1.36（2026年2月7日）
 
 * Opus 4.6 现已提供快速模式。了解更多信息 [https://code.claude.com/docs/en/fast-mode](https://code.claude.com/docs/en/fast-mode)
 
-## 34年2月1日（2026年2月6日）
+## v2.1.34（2026年2月6日）
 
 * 修复了代理团队设置在渲染之间更改时发生的崩溃
 * 修复了启用 `autoAllowBashIfSandboxed` 时从沙箱中排除的命令（通过 `sandbox.excludedCommands` 或 `dangerouslyDisableSandbox`）可能绕过 Bash 询问权限规则的错误
 
-## 33年1月2日（2026年2月6日）* 修复了 tmux 中的代理队友会话以发送和接收消息
+## v2.1.33（2026年2月6日）* 修复了 tmux 中的代理队友会话以发送和接收消息
 * 修复了有关当前计划中不可用的代理团队的警告
 * 为多代理工作流程添加了 `TeammateIdle` 和 `TaskCompleted` 挂钩事件
 * 添加了对通过代理“工具”frontmatter 中的 `Task(agent_type)` 语法限制可以生成哪些子代理的支持
@@ -787,7 +787,7 @@ tags: []
 * 通过优化屏幕数据布局提高终端渲染性能
 * 更改了 Bash 命令以显示超时持续时间以及经过的时间
 * 更改了合并的拉取请求，以在提示页脚中显示紫色状态指示器
-* \[IDE] 修复了在无头模式下为基岩用户显示不正确区域字符串的模型选项
+* \[IDE] 修复了在无头模式下为 Bedrock 用户显示不正确区域字符串的模型选项
 
 ## 2.1.22（2026年1月28日）
 
@@ -835,7 +835,7 @@ tags: []
 * 更改了 `Bash(*)` 等权限规则，使其被接受并视为与 `Bash` 等效
 * 将配置备份更改为带时间戳和轮换（保留 5 个最新的）以防止数据丢失
 
-## 2019年1月23日（2026年1月23日）* 添加环境变量 `CLAUDE_CODE_ENABLE_TASKS`，设置为 `false` 以暂时保留旧系统
+## v2.1.19（2026年1月23日）* 添加环境变量 `CLAUDE_CODE_ENABLE_TASKS`，设置为 `false` 以暂时保留旧系统
 * 添加了简写 `$0`、`$1` 等，用于访问自定义命令中的各个参数
 * 修复了不支持 AVX 指令的处理器上的崩溃问题
 * 通过从 `process.exit()` 捕获 EIO 错误并使用 SIGKILL 作为后备，修复了终端关闭时悬空的 Claude Code 进程
@@ -850,15 +850,15 @@ tags: []
 * \[SDK] 当启用 `replayUserMessages` 时，添加了 `queued_command` 附件消息作为 `SDKUserMessageReplay` 事件的重播
 * \[VSCode] 为所有用户启用会话分叉和倒带功能
 
-## 2018年1月23日（2026年1月23日）
+## v2.1.18（2026年1月23日）
 
 * 添加了可自定义的键盘快捷键。根据上下文配置键绑定、创建和弦序列并个性化您的工作流程。运行 `/keybindings` 即可开始。了解更多信息 [https://code.claude.com/docs/en/keybindings](https://code.claude.com/docs/en/keybindings)
 
-## 2017年1月22日（2026年1月22日）
+## v2.1.17（2026年1月22日）
 
 * 修复了不支持 AVX 指令的处理器上的崩溃问题
 
-## 2016年1月22日（2026年1月22日）
+## v2.1.16（2026年1月22日）
 
 * 添加了新的任务管理系统，包括依赖性跟踪等新功能
 * \[VSCode] 添加原生插件管理支持
@@ -868,14 +868,14 @@ tags: []
 * 修复了简历屏幕上的会话标题不尊重用户语言设置的问题
 * \[IDE] 修复了 Windows 上的竞争条件，其中 Claude Code 侧边栏视图容器不会出现在启动时
 
-## 2015年1月21日（2026年1月21日）
+## v2.1.15（2026年1月21日）
 
 * 添加了 npm 安装的弃用通知 - 运行 `claude install` 或参阅 [https://docs.anthropic.com/en/docs/claude-code/getting-started](https://docs.anthropic.com/en/docs/claude-code/getting-started) 了解更多选项
 * 使用 React Compiler 改进 UI 渲染性能
 * 修复了运行 `/compact` 后“上下文剩余直至自动压缩”警告不消失的问题
 * 修复了 MCP stdio 服务器超时未杀死子进程的问题，这可能会导致 UI 冻结
 
-## 2014年1月20日（2026年1月20日）* 在 bash 模式下添加了基于历史记录的自动完成功能 (`!`) - 输入部分命令并按 Tab 键从 bash 命令历史记录中完成
+## v2.1.14（2026年1月20日）* 在 bash 模式下添加了基于历史记录的自动完成功能 (`!`) - 输入部分命令并按 Tab 键从 bash 命令历史记录中完成
 * 添加了对已安装插件列表的搜索 - 键入按名称或描述进行过滤
 * 添加了对将插件固定到特定 git commit SHA 的支持，允许市场条目安装确切的版本
 * 修复了上下文窗口阻止限制计算过于激进的回归，阻止用户使用上下文的 65%，而不是预期的 98%
@@ -1169,7 +1169,7 @@ tags: []
 * 修复了当光标位于路径中间时错误触发的@文件引用建议
 * 修复了使用 `--dangerously-skip-permissions` 时无法加载 `.mcp.json` 中的 MCP 服务器的问题
 * 修复了错误拒绝包含 shell glob 模式的有效 bash 命令的权限规则（例如 `ls *.txt`、`for f in *.png`）
-* 基岩：环境变量 `ANTHROPIC_BEDROCK_BASE_URL` 现在受到令牌计数和推理配置文件列表的尊重
+* Bedrock：环境变量 `ANTHROPIC_BEDROCK_BASE_URL` 现在受到令牌计数和推理配置文件列表的尊重
 * 用于本机构建的新语法突出显示引擎
 
 ## 2.0.70（2025年12月15日）
@@ -1225,7 +1225,7 @@ tags: []
 
 * 即时自动压实
 * 代理和bash命令可以异步运行并发送消息来唤醒主代理
-* /stats 现在为用户提供有趣的 CC 统计数据，例如最喜爱的型号、使用情况图表、使用情况记录
+* /stats 现在为用户提供有趣的 CC 统计数据，例如最喜爱的模型、使用情况图表、使用情况记录
 * 添加了命名会话支持：使用 `/rename` 命名会话，在 REPL 中使用 `/resume <name>` 或从终端使用 `claude --resume <name>` 来恢复会话
 * 添加了对 .claude/rules/\` 的支持。  有关详细信息，请参阅 [https://code.claude.com/docs/en/memory](https://code.claude.com/docs/en/memory)。
 * 添加图像大小调整时的图像尺寸元数据，实现大图像的精确坐标映射
@@ -1234,8 +1234,8 @@ tags: []
 * 改进了 `/resume` 屏幕，带有分组分叉会话以及用于预览 (P) 和重命名 (R) 的键盘快捷键
 * VSCode：在代码块和 bash 工具输入上添加了“复制到剪贴板”按钮
 * VSCode：通过仿真回退到 x64 二进制，修复了扩展在 Windows ARM64 上不起作用的问题
-* 基岩：提高代币计数效率
-* 基岩：添加对 `aws login` AWS 管理控制台凭证的支持
+* Bedrock：提高 token 计数效率
+* Bedrock：添加对 `aws login` AWS 管理控制台凭证的支持
 * 取消了 AgentOutputTool 和 BashOutputTool，转而采用新的统一 TaskOutputTool
 
 ## 2.0.62（2025年12月9日）* 选择题添加“（推荐）”标记，推荐选项移至列表顶部
@@ -1302,7 +1302,7 @@ tags: []
 
 * 添加了 Opus 4.5！[官方公告](https://www.anthropic.com/news/claude-opus-4-5)
 * 推出桌面版 Claude Code：[https://claude.com/download](https://claude.com/download)
-* 为了让您有空间尝试我们的新型号，我们更新了 Claude Code 用户的使用限制。请参阅 Claude Opus 4.5 博客了解完整详细信息
+* 为了让您有空间尝试我们的新模型，我们更新了 Claude Code 用户的使用限制。请参阅 Claude Opus 4.5 博客了解完整详细信息
 * 专业用户现在可以购买额外的使用费来访问 Claude Code 中的 Opus 4.5
 * Plan Mode 现在可以制定更精确的计划并更彻底地执行
 * 使用限制通知现在更容易理解
@@ -1359,7 +1359,7 @@ tags: []
 * 修复了用户设置中的斜线命令被加载两次的问题，这可能会导致渲染问题
 * 修复了命令描述中用户设置与项目设置的错误标签
 * 修复了插件命令在执行过程中挂钩超时时崩溃的问题
-* 已修复：使用 `--model haiku` 时，基岩用户不再在 /model 选择器中看到重复的 Opus 条目
+* 已修复：使用 `--model haiku` 时，Bedrock 用户不再在 /model 选择器中看到重复的 Opus 条目
 * 修复了信任对话框和入门中损坏的安全文档链接
 * 修复了按 ESC 关闭 diff 模式也会中断模型的问题
 * ctrl-r 历史搜索登陆斜杠命令不再取消搜索
@@ -1460,7 +1460,7 @@ tags: []
 * 修复了指定 --setting-sources 'project' 时未加载项目级技能的错误
 * Claude Code Web：支持Web -> CLI teleport
 * 沙箱：在 Linux 和 Mac 上为 BashTool 发布沙箱模式
-* 基岩：需要身份验证时显示 awsAuthRefresh 输出
+* Bedrock：需要身份验证时显示 awsAuthRefresh 输出
 
 ## 2.0.22（2025年10月17日）
 
@@ -1484,13 +1484,13 @@ tags: []
 ## 2.0.19（2025年10月15日）
 
 * 自动将长时间运行的 bash 命令置于后台而不是终止它们。使用 BASH\_DEFAULT\_TIMEOUT\_MS 进行自定义
-* 修正了打印模式下不必要地调用俳句的错误
+* 修正了打印模式下不必要地调用 Haiku 的错误
 
 ## 2.0.17（2025年10月15日）
 
-* 在模型选择器中添加了俳句 4.5！
+* 在模型选择器中添加了 Haiku 4.5！
 * Haiku 4.5 在计划模式下自动使用 Sonnet，并在执行时使用 Haiku（即默认的 SonnetPlan）
-* 3P（基岩和顶点）尚未自动升级。可通过设置`ANTHROPIC_DEFAULT_HAIKU_MODEL`进行手动升级
+* 3P（Bedrock 和 Vertex）尚未自动升级。可通过设置`ANTHROPIC_DEFAULT_HAIKU_MODEL`进行手动升级
 * 引入 Explore 子代理。由 Haiku 提供支持，它将有效地搜索您的代码库以保存上下文！
 * OTEL: 支持HTTP\_PROXY 和 HTTPS\_PROXY
 * `CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC` 现在禁用发行说明获取
@@ -1548,7 +1548,7 @@ tags: []
 
 ## 2.0.8（2025年10月4日）
 
-* 将基岩默认十四行诗模型更新为 `global.anthropic.claude-sonnet-4-5-20250929-v1:0`
+* 将 Bedrock 默认 Sonnet 模型更新为 `global.anthropic.claude-sonnet-4-5-20250929-v1:0`
 * IDE：添加对聊天中文件和文件夹的拖放支持
 * /context：修复思维块的计数
 * 改进在深色终端上使用浅色主题的用户的消息渲染
@@ -1581,13 +1581,13 @@ tags: []
 
 ## 1.0.126（2025年9月26日）
 
-* 为基岩和顶点启用 /context 命令
+* 为 Bedrock 和 Vertex 启用 /context 命令
 * 添加对基于 HTTP 的 OpenTelemetry 导出器的 mTLS 支持
 
 ## 1.0.124（2025年9月25日）
 
 * 将 `CLAUDE_BASH_NO_LOGIN` 环境变量设置为 1 或 true 以跳过 BashTool 的登录 shell
-* 修复基岩和顶点环境变量，将所有字符串评估为真实值
+* 修复 Bedrock 和 Vertex 环境变量，将所有字符串评估为真实值
 * 权限被拒绝时不再通知 Claude 允许使用的工具列表
 * 修复了 Bash 工具权限检查中的安全漏洞
 * 改进了 VSCode 对大文件的扩展性能
@@ -1688,7 +1688,7 @@ tags: []
 * 状态行输入现在包括 `exceeds_200k_tokens`
 * 修复了 /cost 中不正确的使用情况跟踪。
 * 引入了 `ANTHROPIC_DEFAULT_SONNET_MODEL` 和 `ANTHROPIC_DEFAULT_OPUS_MODEL` 用于控制模型别名 opusplan、opus 和 sonnet。
-* 基岩：将默认 Sonnet 模型更新为 Sonnet 4
+* Bedrock：将默认 Sonnet 模型更新为 Sonnet 4
 
 ## 1.0.86（2025年8月22日）
 
@@ -2079,7 +2079,7 @@ tags: []
 
 ## 0.2.125（2025年5月21日）
 
-* 重大更改：传递给 `ANTHROPIC_MODEL` 或 `ANTHROPIC_SMALL_FAST_MODEL` 的基岩 ARN 不应再包含转义斜杠（指定 `/` 而不是 `%2F`）
+* 重大更改：传递给 `ANTHROPIC_MODEL` 或 `ANTHROPIC_SMALL_FAST_MODEL` 的 Bedrock ARN 不应再包含转义斜杠（指定 `/` 而不是 `%2F`）
 * 删除 `DEBUG=true` 以支持 `ANTHROPIC_LOG=debug`，以记录所有请求
 
 ## 0.2.117（2025年5月17日）* 重大更改：--print JSON 输出现在返回嵌套消息对象，以实现向前兼容性，因为我们引入了新的元数据字段

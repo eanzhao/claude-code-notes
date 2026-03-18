@@ -580,7 +580,7 @@ sudo apt-get install bubblewrap socat
 ```
 
   
-### 软呢帽
+### Fedora
 
 ```bash
 sudo dnf install bubblewrap socat

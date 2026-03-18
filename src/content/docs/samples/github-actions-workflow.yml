@@ -1,0 +1,90 @@
+# Claude Code GitHub Actions 工作流示例
+# 保存到 .github/workflows/claude-code.yml
+
+name: Claude Code Assistant
+
+on:
+  issues:
+    types: [opened, edited]
+  issue_comment:
+    types: [created]
+  pull_request:
+    types: [opened, synchronize]
+  pull_request_review_comment:
+    types: [created]
+
+jobs:
+  claude:
+    runs-on: ubuntu-latest
+    # 只在 @claude 被提及时运行
+    if: contains(github.event.comment.body, '@claude') || contains(github.event.issue.body, '@claude')
+    
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
+      
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          
+      - name: Run Claude Code
+        uses: anthropics/claude-code-action@v1
+        with:
+          # 从触发事件的评论中提取提示
+          prompt: ${{ github.event.comment.body }}
+          # 使用的模型
+          model: claude-sonnet-4-6
+          # 允许的权限模式
+          permission-mode: acceptEdits
+          # 是否自动推送更改
+          auto-commit: true
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+
+---
+
+# 另一个示例：自动代码审查
+
+name: Claude Code Review
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+      
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          
+      - name: Review with Claude
+        uses: anthropics/claude-code-action@v1
+        with:
+          prompt: |
+            请审查这个 PR 的更改：
+            
+            1. 检查代码质量和潜在问题
+            2. 验证是否符合项目的编码规范
+            3. 识别安全风险
+            4. 提供改进建议
+            
+            请按严重程度排序你的发现，并提供具体的行级注释。
+          model: claude-sonnet-4-6
+          permission-mode: plan
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}

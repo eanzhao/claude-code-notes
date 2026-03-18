@@ -1,5 +1,5 @@
 ---
-title: "延长 Claude Code"
+title: "扩展 Claude Code"
 order: 5
 section: "core-concepts"
 sectionLabel: "核心概念"

@@ -1,0 +1,91 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "_comment": "Claude Code 设置文件示例 - 可以放在 ~/.claude/settings.json 或 .claude/settings.json",
+  
+  "permissions": {
+    "allow": [
+      "Bash(npm run *)",
+      "Bash(git status)",
+      "Bash(git diff *)",
+      "Bash(git log *)",
+      "Read(~/.zshrc)",
+      "Read(~/.bashrc)"
+    ],
+    "deny": [
+      "Bash(git push *)",
+      "Bash(curl *)",
+      "Bash(wget *)",
+      "Read(./.env)",
+      "Read(./.env.*)",
+      "Read(./secrets/**)"
+    ],
+    "ask": [
+      "Bash(docker *)"
+    ]
+  },
+  
+  "env": {
+    "CLAUDE_CODE_ENABLE_TELEMETRY": "1",
+    "EDITOR": "code --wait"
+  },
+  
+  "model": "sonnet",
+  "effortLevel": "medium",
+  
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/log-commands.sh"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/post-edit.sh"
+          }
+        ]
+      }
+    ]
+  },
+  
+  "sandbox": {
+    "enabled": true,
+    "autoAllowBashIfSandboxed": true,
+    "excludedCommands": ["git", "docker"],
+    "filesystem": {
+      "allowWrite": ["~/.cache", "//tmp/build"],
+      "denyRead": ["~/.aws/credentials", "~/.ssh/id_*"]
+    },
+    "network": {
+      "allowedDomains": ["github.com", "*.npmjs.org", "registry.yarnpkg.com"]
+    }
+  },
+  
+  "statusLine": {
+    "type": "command",
+    "command": "~/.claude/statusline.sh"
+  },
+  
+  "attribution": {
+    "commit": "🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>",
+    "pr": "🤖 Generated with [Claude Code](https://claude.com/claude-code)"
+  },
+  
+  "autoMemoryDirectory": "~/.claude/memory",
+  "cleanupPeriodDays": 30,
+  
+  "companyAnnouncements": [
+    "欢迎使用 Claude Code！",
+    "提示：使用 /help 查看所有可用命令",
+    "提示：使用 /compact 清理对话上下文"
+  ]
+}

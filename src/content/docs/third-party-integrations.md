@@ -144,7 +144,7 @@ export HTTPS_PROXY='https://proxy.example.com:8080'
 ```
 
   
-### 法学硕士网关
+### LLM 网关
 
 通过设置以下[环境变量](./env-vars)，通过 LLM 网关路由 Bedrock 流量：
 
@@ -174,7 +174,7 @@ export HTTPS_PROXY='https://proxy.example.com:8080'
 ```
 
   
-### 法学硕士网关
+### LLM 网关
 
 通过设置以下[环境变量](./env-vars)，通过 LLM 网关路由 Foundry 流量：
 
@@ -204,7 +204,7 @@ export HTTPS_PROXY='https://proxy.example.com:8080'
 ```
 
   
-### 法学硕士网关
+### LLM 网关
 
 通过设置以下[环境变量](./env-vars)，通过 LLM 网关路由 Vertex AI 流量：
 
@@ -240,7 +240,7 @@ export CLAUDE_CODE_SKIP_VERTEX_AUTH=1  # If gateway handles GCP auth
 
 ### 云提供商的 Pin 模型版本
 
-如果您通过 [Bedrock](./amazon-bedrock)、[Vertex AI](./google-vertex-ai) 或 [Foundry](./microsoft-foundry) 进行部署，请使用 `ANTHROPIC_DEFAULT_OPUS_MODEL`、`ANTHROPIC_DEFAULT_SONNET_MODEL` 和 `ANTHROPIC_DEFAULT_HAIKU_MODEL` 固定特定型号版本。如果不固定，Claude Code 别名将解析为最新版本，当 Anthropic 发布尚未在您的帐户中启用的新模型时，这可能会破坏用户。详情请参见[型号配置](./model-config#pin-models-for-third-party-deployments)。
+如果您通过 [Bedrock](./amazon-bedrock)、[Vertex AI](./google-vertex-ai) 或 [Foundry](./microsoft-foundry) 进行部署，请使用 `ANTHROPIC_DEFAULT_OPUS_MODEL`、`ANTHROPIC_DEFAULT_SONNET_MODEL` 和 `ANTHROPIC_DEFAULT_HAIKU_MODEL` 固定特定模型版本。如果不固定，Claude Code 别名将解析为最新版本，当 Anthropic 发布尚未在您的帐户中启用的新模型时，这可能会破坏用户。详情请参见[模型配置](./model-config#pin-models-for-third-party-deployments)。
 
 ### 配置安全策略
 

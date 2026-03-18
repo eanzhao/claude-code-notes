@@ -34,7 +34,7 @@ ZDR 在每个组织的基础上启用。每个新组织都要求您的 Anthropic
 
 ### ZDR 涵盖的内容
 
-ZDR 涵盖通过 Claude Code 在 Claude for Enterprise 上进行的模型推理调用。当您在终端中使用 Claude Code 时，Anthropic 不会保留您发送的提示和 Claude 生成的响应。无论使用哪种 Claude 型号，这都适用。
+ZDR 涵盖通过 Claude Code 在 Claude for Enterprise 上进行的模型推理调用。当您在终端中使用 Claude Code 时，Anthropic 不会保留您发送的提示和 Claude 生成的响应。无论使用哪种 Claude 模型，这都适用。
 
 ### ZDR 不涵盖的内容
 

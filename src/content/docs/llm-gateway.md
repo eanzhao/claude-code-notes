@@ -32,10 +32,10 @@ LLM 网关在 Claude Code 和模型提供商之间提供集中代理层，通常
 1. **Anthropic 消息**：`/v1/messages`、`/v1/messages/count_tokens`
    * 必须转发请求标头：`anthropic-beta`、`anthropic-version`
 
-2. **基岩调用模型**：`/invoke`、`/invoke-with-response-stream`
+2. **Bedrock 调用模型**：`/invoke`、`/invoke-with-response-stream`
    * 必须保留请求正文字段：`anthropic_beta`、`anthropic_version`
 
-3. **顶点原始预测**：`:rawPredict`、`:streamRawPredict`、`/count-tokens:rawPredict`
+3. **Vertex 原始预测**：`:rawPredict`、`:streamRawPredict`、`/count-tokens:rawPredict`
    * 必须转发请求标头：`anthropic-beta`、`anthropic-version`
 
 未能转发标头或保留正文字段可能会导致功能减少或无法使用 Claude Code 功能。
