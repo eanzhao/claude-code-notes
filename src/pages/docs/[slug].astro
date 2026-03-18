@@ -1,0 +1,21 @@
+---
+import { getCollection } from "astro:content";
+import DocEntryPage from "../../components/DocEntryPage.astro";
+
+export async function getStaticPaths() {
+  const docs = await getCollection("docs");
+
+  return docs.map((entry) => ({
+    params: { slug: entry.id.replace(/\.md$/, "") },
+    props: { entryId: entry.id.replace(/\.md$/, "") },
+  }));
+}
+
+interface Props {
+  entryId: string;
+}
+
+const { entryId } = Astro.props;
+---
+
+<DocEntryPage entryId={entryId} />

@@ -1,0 +1,48 @@
+---
+import { getCollection, render } from "astro:content";
+import DocsLayout from "../layouts/DocsLayout.astro";
+
+interface Props {
+  entryId: string;
+}
+
+const { entryId } = Astro.props;
+const rawDocs = await getCollection("docs");
+const docs = rawDocs
+  .map((entry) => ({
+    ...entry,
+    id: entry.id.replace(/\.md$/, ""),
+  }))
+  .sort((left, right) => left.data.order - right.data.order);
+const rawEntry = rawDocs.find((entry) => entry.id.replace(/\.md$/, "") === entryId);
+
+if (!rawEntry) {
+  throw new Error(`Doc entry not found: ${entryId}`);
+}
+
+const { Content } = await render(rawEntry);
+const sectionLabel = rawEntry.data.sectionLabel ?? rawEntry.data.section;
+---
+
+<DocsLayout
+  title={`${rawEntry.data.title} | Claude Code 中文文档`}
+  description={rawEntry.data.summary}
+  docs={docs}
+  currentId={entryId}
+  currentTitle={rawEntry.data.title}
+>
+  <article class="doc">
+    <div class="doc-meta">
+      <span>{sectionLabel}</span>
+      {rawEntry.data.groupLabel && <span>{rawEntry.data.groupLabel}</span>}
+      {rawEntry.data.sourceUrl && (
+        <a href={rawEntry.data.sourceUrl} target="_blank" rel="noopener noreferrer">
+          官方原文
+        </a>
+      )}
+    </div>
+    <h1>{rawEntry.data.title}</h1>
+    <p class="summary">{rawEntry.data.summary}</p>
+    <Content />
+  </article>
+</DocsLayout>

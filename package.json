@@ -1,0 +1,16 @@
+{
+  "name": "claude-code-notes",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "sync:docs": "python3 scripts/sync_claude_code_docs.py"
+  },
+  "devDependencies": {
+    "astro": "^5.6.1",
+    "typescript": "^5.8.2"
+  }
+}
