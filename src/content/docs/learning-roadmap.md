@@ -1,155 +1,141 @@
 ---
-title: "Claude Code 系统学习路线"
+title: "Claude Code 学习路线"
 order: 0
 section: "getting-started"
 sectionLabel: "快速入门"
 sectionOrder: 1
 group: "curated"
 groupLabel: "学习辅助"
-summary: "先学什么、后学什么，以及 Desktop app 和 CLI 用户最值得优先吃透的能力。"
+summary: "从入门到精通的学习顺序建议，避免踩坑，快速上手。"
 tags: []
 ---
 
-# Claude Code 系统学习路线
+# 怎么学 Claude Code 最顺？
 
-这页不是官方原文，而是给你这种主要通过 Claude Desktop app 和 `claude` CLI 使用 Claude Code 的人准备的一条学习主线。官方文档很全，但页数多、话题散。如果一开始就从头平推，通常会记住很多名词，却很难建立手感。
+官方文档很全，但直接从头看到尾容易晕。这里给你一条更接地气的学习路线，帮你少走弯路。
 
-我的建议很直接：先把“Claude Code 到底怎么工作”吃透，再去学权限、记忆、常用工作流，最后才是 MCP、hooks、skills、plugins 这些扩展能力。顺序对了，学习成本会低很多。
+## 先玩起来（第 1 阶段）
 
-## 第一阶段：先把基本手感练出来
+别急着看原理，先让 Claude Code 跑起来：
 
-1. 看 [概览](./overview)。
-2. 看 [快速开始](./quickstart)。
-3. 接着看 [Claude Code 的工作原理](./how-claude-code-works)。
-4. 再看 [常见工作流](./common-workflows)。
+1. **[概览](./overview)** - 5 分钟了解它能干啥
+2. **[快速开始](./quickstart)** - 跟着敲一遍，熟悉基本操作
+3. **[它是怎么干活的](./how-claude-code-works)** - 理解 Claude 怎么读代码、改文件、跑命令
+4. **[常见工作流](./common-workflows)** - 看别人怎么用它修 Bug、加功能
 
-这一轮的目标只有一个：知道 Claude Code 平时会怎么读代码、什么时候会改文件、什么时候会跑命令、你应该怎样打断它、怎样把任务说清楚。
+**这阶段的目标**：能流畅地跟 Claude 对话，知道怎么让它改代码、什么时候该喊停。
 
-如果你平时主要用桌面端，这时顺手读掉 [Desktop 快速开始](./desktop-quickstart) 和 [Claude Code Desktop](./desktop)。如果你主要在终端里用，就把 [CLI 参考](./cli-reference) 和 [交互模式](./interactive-mode) 提前看一遍。
+> 💡 如果你用桌面版，顺手看看 [Desktop 快速开始](./desktop-quickstart)；如果用终端，看看 [CLI 参考](./cli-reference)。
 
-## 第二阶段：把“可控性”学明白
+---
 
-这一阶段最重要，尤其是你开始让 Claude 帮你真实改项目之后。
+## 学会控制（第 2 阶段）
 
-建议顺序：
+ Claude 能自动改文件、跑命令，但前提是你要管得住它。
 
-1. [权限配置](./permissions)
-2. [设置](./settings)
-3. [记忆机制](./memory)
-4. [最佳实践](./best-practices)
-5. [Checkpointing](./checkpointing)
+按这个顺序看：
 
-你会发现 Claude Code 好不好用，很多时候不取决于模型本身，而取决于三件事：
+1. **[权限配置](./permissions)** - 设置哪些操作要问你、哪些可以直接干
+2. **[记忆机制](./memory)** - 教 Claude 记住你的项目规范
+3. **[最佳实践](./best-practices)** - 怎么写提示词效果最好
+4. **[设置](./settings)** - 把常用的配置固化下来
 
-- 你给了多少明确上下文
-- 你允许它做到什么程度
-- 你有没有给它“自证正确”的办法，比如测试、lint、预览、diff、CI
+**这阶段的核心**：让 Claude 按照你的规矩来，而不是它自己瞎折腾。
 
-这几页看完以后，你对 `CLAUDE.md`、自动记忆、权限模式、上下文压缩、会话恢复这些核心概念就基本不会再混。
+---
 
-## 第三阶段：针对你最常用的两个入口深挖
+## 深挖你常用的工具（第 3 阶段）
 
-### 如果你更常用 Claude Desktop app
+### 用桌面版（Desktop）的看这里
 
-优先读这些：
+重点看这几个：
 
-1. [Claude Code Desktop](./desktop)
-2. [远程控制](./remote-control)
-3. [Claude Code on the web](./claude-code-on-the-web)
-4. [Chrome 集成](./chrome)
-5. [计划模式、并行会话、工作树相关内容](./common-workflows)
+1. **[Desktop 完整指南](./desktop)** - 图形界面所有功能
+2. **[远程控制](./remote-control)** - 手机也能接着电脑上的会话继续
+3. **[网页版](./claude-code-on-the-web)** - 不用装软件，浏览器直接开干
+4. **[Chrome 插件](./chrome)** - 让 Claude 直接操作浏览器
 
-Desktop 最值钱的地方，不只是“有图形界面”，而是它把几个高价值能力串起来了：
+**Desktop 的杀手锏**：
+- 改代码前先看 diff，改得对不对一目了然
+- 能预览网页效果（比如前端项目）
+- 可以同时开多个会话，互不干扰
+- 能跑定时任务，比如每小时检查一次部署状态
 
-- diff review
-- app preview
-- 并行 session
-- worktree 隔离
-- 远程长任务
-- 定时任务
+### 用命令行（CLI）的看这里
 
-这些能力配合起来，特别适合改前端、跟 CI、修线上小问题，或者同时跑几条线索。
+重点练这几个：
 
-### 如果你更常用 CLI
+1. **[CLI 参考](./cli-reference)** - 所有命令参数
+2. **[内置命令](./commands)** - `/` 开头的快捷指令
+3. **[交互模式](./interactive-mode)** - 快捷键和技巧
+4. **[沙箱](./sandboxing)** - 安全地跑命令
 
-优先读这些：
+**CLI 的精髓**：
+```bash
+claude                    # 进入交互模式
+claude -p "修复登录 Bug"   # 一次性任务
+claude -c                 # 接着上次的会话继续
+```
 
-1. [CLI 参考](./cli-reference)
-2. [内置命令](./commands)
-3. [交互模式](./interactive-mode)
-4. [工具参考](./tools-reference)
-5. [沙箱机制](./sandboxing)
-6. [终端优化](./terminal-config)
+终端用熟了，Claude 就像你的编程搭档，而不是一个聊天机器人。
 
-CLI 的关键不是记住所有 flag，而是把下面这些套路练熟：
+---
 
-- `claude` 开交互式会话
-- `claude -p` 做一次性查询或接到脚本里
-- `claude -c` / `claude -r` 接着之前的上下文干
-- 用 `--permission-mode`、`--allowedTools`、`--tools` 控制风险
-- 用 worktree 跑并行任务
+## 开始扩展（第 4 阶段）
 
-终端里一旦这些习惯成型，Claude Code 会很像一个能持续协作的工程搭子，而不是“会聊天的命令行工具”。
+等前面都顺手了，再考虑扩展。太早折腾这些容易过度设计。
 
-## 第四阶段：开始扩展 Claude Code
+推荐顺序：
 
-这一块别太早学。等前面几阶段熟了，再读会轻松很多。
+1. **[扩展总览](./features-overview)** - 先搞清楚各功能能干嘛
+2. **[Skills](./skills)** - 自定义命令，比如 `/code-review`
+3. **[Subagents](./sub-agents)** - 让专门的小助手干特定任务
+4. **[Hooks](./hooks-guide)** - 自动执行脚本（比如改完代码自动格式化）
+5. **[MCP](./mcp)** - 接外部工具（数据库、Slack、GitHub 等）
+6. **[Plugins](./plugins)** - 打包分享你的配置
 
-建议顺序：
+**⚠️ 避坑建议**：
+- 先写 `CLAUDE.md` 定义项目规范
+- 需要自动化时再加 hooks
+- 真的要接外部系统再上 MCP
+- 别一上来就搞一堆配置，简单够用就好
 
-1. [扩展能力总览](./features-overview)
-2. [Skills](./skills)
-3. [Subagents](./sub-agents)
-4. [Hooks 指南](./hooks-guide)
-5. [MCP](./mcp)
-6. [Plugins](./plugins)
+---
 
-这一部分最容易掉进一个坑：看到什么都想接，结果项目里塞满规则、hooks、MCP、plugins，最后谁也不敢动。我的经验是先少量接入，先解决具体问题，再考虑体系化。
+## 团队协作（第 5 阶段）
 
-比如：
+想在整个团队推广时再看：
 
-- 想让 Claude 总按你的项目约定做事，先写好 `CLAUDE.md`
-- 想让它改完自动格式化或自动提醒，先上 hooks
-- 想接外部系统，再看 MCP
-- 想封装成可分发能力，再看 plugins
+1. **[GitHub Actions](./github-actions)** - PR 自动审查、Issue 自动处理
+2. **[Code Review](./code-review)** - 让 Claude 帮你审代码
+3. **[成本管理](./costs)** - 控制团队开销
+4. **[安全与合规](./security)** - 企业级安全
 
-## 第五阶段：进入自动化和团队协作
+---
 
-如果你后面想把 Claude Code 用到团队里，这一段再补：
+## 如果你只有时间看 12 页
 
-1. [GitHub Actions](./github-actions)
-2. [GitLab CI/CD](./gitlab-ci-cd)
-3. [Code Review](./code-review)
-4. [分析与监控](./analytics)
-5. [成本管理](./costs)
-6. [安全与合规](./security)
-
-这是“个人提效”走向“团队流程”的分界线。前面的重点是你和 Claude 怎么配合，这里的重点变成团队规则、成本、权限边界、审计和自动化。
-
-## 一条更贴近实战的学习顺序
-
-如果你只想先学最有用的那 12 页，我会推荐这条顺序：
+按这个顺序：
 
 1. [概览](./overview)
 2. [快速开始](./quickstart)
-3. [Claude Code 的工作原理](./how-claude-code-works)
+3. [工作原理](./how-claude-code-works)
 4. [常见工作流](./common-workflows)
 5. [最佳实践](./best-practices)
 6. [权限配置](./permissions)
 7. [记忆机制](./memory)
-8. [Claude Code Desktop](./desktop)
-9. [CLI 参考](./cli-reference)
-10. [设置](./settings)
-11. [扩展能力总览](./features-overview)
-12. [MCP](./mcp)
+8. [Desktop 指南](./desktop) 或 [CLI 参考](./cli-reference)
+9. [设置](./settings)
+10. [扩展总览](./features-overview)
+11. [MCP](./mcp)
+12. [故障排查](./troubleshooting)
 
-这套顺序的好处是，前半段先把“怎么把活干对”学会，后半段再学“怎么把系统接大”。
+---
 
-## 配合这套路线一起看的页面
+## 一些实用小贴士
 
-- [Desktop / CLI 高频样例](./desktop-cli-samples)
-- [Claude Code 官方文档地图](./official-docs-map)
-- [故障排查](./troubleshooting)
-- [更新日志](./changelog)
+- **[Desktop/CLI 样例](./desktop-cli-samples)** - 直接抄作业
+- **[官方文档地图](./official-docs-map)** - 找不到东西时来这查
+- **[更新日志](./changelog)** - 隔几周回来看一眼，Claude Code 更新很快
 
-`troubleshooting` 值得收藏，`changelog` 则适合隔段时间回来看一眼。Claude Code 更新挺快，很多能力不是“有没有”，而是“最近两个月刚变得更好用”。
+有问题先问 Claude：`/help` 或者直接打字问。
