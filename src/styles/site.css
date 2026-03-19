@@ -62,21 +62,51 @@ a {
 .site-header nav {
   display: flex;
   gap: 16px;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 .site-header a {
   text-decoration: none;
 }
 
-.github-link {
-  display: inline-flex;
-  align-items: center;
-  color: var(--muted);
-  transition: color 160ms ease;
+.site-nav {
+  justify-content: flex-end;
 }
 
-.github-link:hover {
+.site-nav-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+  transition: color 160ms ease, background-color 160ms ease, border-color 160ms ease;
+}
+
+.site-nav-link:hover {
   color: var(--text);
+}
+
+.site-nav-link-repo {
+  padding: 8px 12px;
+  border: 1px solid rgba(217, 119, 6, 0.18);
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent-strong);
+}
+
+.site-nav-link-repo:hover {
+  border-color: rgba(217, 119, 6, 0.32);
+  background: rgba(217, 119, 6, 0.12);
+  color: #92400e;
+}
+
+.site-nav-link-label {
+  font-weight: 700;
+}
+
+.site-nav-link-value {
+  font-family: "SF Mono", "Menlo", monospace;
+  font-size: 0.78rem;
 }
 
 .brand {
@@ -748,6 +778,15 @@ a {
 
   .site-header nav {
     font-size: 0.86rem;
+    gap: 10px;
+  }
+
+  .site-nav-link-repo {
+    padding: 6px 10px;
+  }
+
+  .site-nav-link-value {
+    display: none;
   }
 }
 

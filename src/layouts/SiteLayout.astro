@@ -9,6 +9,8 @@ interface Props {
 
 const { title, description = "Claude Code 使用技巧与完整文档中文翻译" } = Astro.props;
 const overviewUrl = withBasePath("docs/learning-roadmap");
+const officialDocsUrl = "https://code.claude.com/docs/en/";
+const repositoryUrl = "https://github.com/eanzhao/claude-code-notes";
 ---
 
 <!doctype html>
@@ -23,14 +25,14 @@ const overviewUrl = withBasePath("docs/learning-roadmap");
     <div class="shell">
       <header class="site-header">
         <a class="brand" href={overviewUrl}>Claude Code 中文文档</a>
-        <nav>
+        <nav class="site-nav">
           <a href={overviewUrl}>学习路线</a>
-          <a href="https://code.claude.com/docs/en/" target="_blank" rel="noopener noreferrer" class="github-link" aria-label="官方英文文档">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5">
-              <path d="M11 3H17V9" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M17 3L9 11" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M15 11V16C15 16.5523 14.5523 17 14 17H4C3.44772 17 3 16.5523 3 16V6C3 5.44772 3.44772 5 4 5H9" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
+          <a href={officialDocsUrl} target="_blank" rel="noopener noreferrer" class="site-nav-link" aria-label="官方英文文档">
+            官方英文
+          </a>
+          <a href={repositoryUrl} target="_blank" rel="noopener noreferrer" class="site-nav-link site-nav-link-repo" aria-label="GitHub 仓库">
+            <span class="site-nav-link-label">GitHub</span>
+            <span class="site-nav-link-value">github.com/eanzhao/claude-code-notes</span>
           </a>
         </nav>
       </header>
